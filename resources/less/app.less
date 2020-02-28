@@ -1,0 +1,92 @@
+@black: #000000;
+@white: #ffff;
+@red  : #dc3545;
+
+.conteint-main {
+    min-height: calc(100vh - 100px);
+}
+
+.bg-dark {
+    background-color: @black  !important;
+    color           : @white;
+
+    .nav-link {
+        padding-top: 10px;
+        height     : 50px;
+        color      : @white  !important;
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+        background : @white  !important;
+        height     : 50px;
+        font-weight: 600;
+        color      : @black  !important;
+    }
+}
+
+footer {
+    height: 50px;
+}
+
+.card {
+    border-radius: 1.5em;
+}
+
+// BUTTONS
+.btn {
+    border-radius: 1.5em;
+    padding-left : 30px;
+    padding-right: 30px;
+}
+
+.btn-primary {
+    font-weight: 600;
+    background : @black;
+    color      : @white;
+    border     : @black solid 2px;
+
+    &:hover,
+    &:focus {
+        -webkit-box-shadow: 0px 6px 21px -6px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow   : 0px 6px 21px -6px rgba(0, 0, 0, 0.75);
+        box-shadow        : 0px 6px 21px -6px rgba(0, 0, 0, 0.75);
+        border            : @black solid 2px;
+        color             : @black;
+        background        : @white;
+    }
+
+    &:active {
+        border    : @black solid 2px;
+        color     : @black;
+        background: @white;
+
+    }
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+    border    : @black solid 2px;
+    color     : @black;
+    background: @white;
+}
+
+.form-group {
+
+    .form-control {
+        border       : none;
+        border-bottom: solid 2px @black;
+        border-radius: .8em;
+
+        &.is-invalid {
+
+            border-bottom: solid 2px @red;
+        }
+
+        &:focus {
+            color           : #495057;
+            background-color: @white;
+            outline         : 0;
+            box-shadow      : 0 0 0 0.2rem rgba(3, 3, 3, 0.08);
+        }
+    }
+}

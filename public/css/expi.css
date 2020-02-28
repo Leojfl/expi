@@ -1,0 +1,67 @@
+.conteint-main {
+  min-height: calc(100vh - 100px);
+}
+.bg-dark {
+  background-color: #000000 !important;
+  color: #ffff;
+}
+.bg-dark .nav-link {
+  padding-top: 10px;
+  height: 50px;
+  color: #ffff !important;
+}
+.bg-dark .nav-link.active,
+.bg-dark .nav-link:hover {
+  background: #ffff !important;
+  height: 50px;
+  font-weight: 600;
+  color: #000000 !important;
+}
+footer {
+  height: 50px;
+}
+.card {
+  border-radius: 1.5em;
+}
+.btn {
+  border-radius: 1.5em;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.btn-primary {
+  font-weight: 600;
+  background: #000000;
+  color: #ffff;
+  border: #000000 solid 2px;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  box-shadow: 0px 6px 21px -6px rgba(0, 0, 0, 0.75);
+  border: #000000 solid 2px;
+  color: #000000;
+  background: #ffff;
+}
+.btn-primary:active {
+  border: #000000 solid 2px;
+  color: #000000;
+  background: #ffff;
+}
+.btn-primary:not(:disabled):not(.disabled):active {
+  border: #000000 solid 2px;
+  color: #000000;
+  background: #ffff;
+}
+.form-group .form-control {
+  border: none;
+  border-bottom: solid 2px #000000;
+  border-radius: 0.8em;
+}
+.form-group .form-control.is-invalid {
+  border-bottom: solid 2px #dc3545;
+}
+.form-group .form-control:focus {
+  color: #495057;
+  background-color: #ffff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(3, 3, 3, 0.08);
+}
