@@ -11,23 +11,27 @@
 |
 */
 
-Route::view('/', 'auth.login')->name('login')
-->middleware('guest');
+Route::view('/', 'auth.login')
+    ->name('login')
+    ->middleware('guest');
 
-Route::post('/login-post','Auth\LoginController@autenticate')
-->name('login_post')->middleware('guest');
+Route::get('/logout', 'Auth\LoginController@logout')
+    ->name('logout')
+    ->middleware('auth');
 
+Route::post('/login-post', 'Auth\LoginController@autenticate')
+    ->name('login_post')
+    ->middleware('guest');
 
-Route::get('/register', function () {
-    return view('auth.login');
-})->name('register')
-->middleware('guest');
+Route::view('/register', 'auth.login')
+    ->name('register')
+    ->middleware('guest');
 
 Route::post('/register', function () {
     return view('auth.login');
 })->name('register_post')
-->middleware('guest');
+    ->middleware('guest');
 
 Route::view('/home', 'welcome')
-->name('home')
-->middleware('auth');
+    ->name('home')
+    ->middleware('auth');

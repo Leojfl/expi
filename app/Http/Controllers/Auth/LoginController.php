@@ -68,4 +68,8 @@ class LoginController extends Controller
         ->withErrors([ 'email' => ['Correo o contraseña incorrectos']])
         ->withInput($request->all());
     }
+    public function logout(){
+        Auth::logout();
+        return redirect(route('login'));
+    }
 }
