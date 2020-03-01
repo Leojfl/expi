@@ -91,7 +91,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('admin')
              ->middleware(['web','auth'])
-             ->namespace($this->namespace)
+             ->namespace($this->namespace.'\Admin')
              ->group(base_path('routes/admin.php'));
     }
 
@@ -106,7 +106,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('parking')
              ->middleware(['web','auth'])
-             ->namespace($this->namespace)
+             ->namespace($this->namespace.'\Parking')
              ->group(base_path('routes/parking.php'));
     }
 

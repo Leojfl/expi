@@ -1,0 +1,9 @@
+@switch(Auth::user()->fk_id_rol)
+    @case(\App\Models\Rol::ADMIN)
+    @include('admin.components.sidebar')
+    @break
+    @case(\App\Models\Rol::PARKING)
+    @break
+    @case(\App\Models\Rol::CLIENT)
+    @break
+@endswitch

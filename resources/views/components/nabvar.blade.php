@@ -2,7 +2,7 @@
     $routeName = Route::currentRouteName();
 @endphp
 <nav class="navbar navbar-expand-sm  navbar-dark bg-dark py-0 shadow">
-    <a class="navbar-brand ml-3 p-0" href="#">
+    <a class="navbar-brand ml-5 p-0" href="#">
         <img src="{{asset('img/expin.jpg')}}" height="50"/>
     </a>
     <button class="navbar-toggler"

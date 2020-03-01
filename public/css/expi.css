@@ -7,13 +7,13 @@
 }
 .bg-dark .nav-link {
   padding-top: 10px;
-  height: 50px;
+  min-height: 50px;
   color: #ffff !important;
 }
 .bg-dark .nav-link.active,
 .bg-dark .nav-link:hover {
   background: #ffff !important;
-  height: 50px;
+  min-height: 50px;
   font-weight: 600;
   color: #000000 !important;
 }
@@ -22,6 +22,12 @@ footer {
 }
 .card {
   border-radius: 1.5em;
+}
+.card .card-header:first-child {
+  border-radius: 1.5em;
+  color: #ffff;
+  background: #000000;
+  margin: -20px 30px;
 }
 .btn {
   border-radius: 1.5em;
