@@ -9,17 +9,19 @@
 @section('content')
     <div class="row">
         <div class="col-md-12 text-right mt-5">
-            <a class="btn btn-primary">Agregar</a>
+            <a href="{{route('admin_user_create')}}" class="btn btn-primary">Agregar</a>
         </div>
         <div class="col-md-12 mt-5">
             <div class="card shadow">
                 <div class="card-header">
-asd
+                    Super usuarios
                 </div>
                 <div class="card-body">
-                    @foreach($users as $user)
+                    @forelse($users as $user)
                         {{$user->full_name}}
-                    @endforeach
+                    @empty
+                        Sin usuarios
+                    @endforelse
                     {{ $users->links() }}
                 </div>
             </div>
