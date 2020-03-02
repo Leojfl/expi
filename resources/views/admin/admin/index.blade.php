@@ -6,6 +6,7 @@
 @extends('template.main')
 @push('scripts')
     <script src="{{asset('commons/load_view.js')}}"></script>
+    <script src="{{asset('commons/submit_form.js')}}"></script>
     <script src="{{asset('js/admin/index.js')}}" type="text/javascript"></script>
 @endpush
 @section('content')

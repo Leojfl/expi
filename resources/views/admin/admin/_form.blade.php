@@ -5,6 +5,7 @@
       action="{{route('admin_user_create_post',['userId'=>$userId])}}"
       method="POST">
     <div class="row">
+        @csrf
         <div class="col-md-12 text-center">
             <h4>Agregar administrador</h4>
         </div>
