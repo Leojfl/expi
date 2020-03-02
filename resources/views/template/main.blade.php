@@ -26,6 +26,6 @@
 </div>
 @include('components.footer')
 @include('template.global-js')
-@stack('js')
+@stack('scripts')
 </body>
 </html>

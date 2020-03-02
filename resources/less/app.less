@@ -1,27 +1,27 @@
 @black: #000000;
 @white: #ffff;
-@red  : #dc3545;
+@red: #dc3545;
 
 .conteint-main {
     min-height: calc(100vh - 100px);
 }
 
 .bg-dark {
-    background-color: @black  !important;
-    color           : @white;
+    background-color: @black !important;
+    color: @white;
 
     .nav-link {
         padding-top: 10px;
-        min-height     : 50px;
-        color      : @white  !important;
+        min-height: 50px;
+        color: @white !important;
     }
 
     .nav-link.active,
     .nav-link:hover {
-        background : @white  !important;
-        min-height     : 50px;
+        background: @white !important;
+        min-height: 50px;
         font-weight: 600;
-        color      : @black  !important;
+        color: @black !important;
     }
 }
 
@@ -33,6 +33,7 @@ footer {
 
 .card {
     border-radius: 1.5em;
+
     .card-header:first-child {
         border-radius: 1.5em;
         color: @white;
@@ -45,44 +46,44 @@ footer {
 // BUTTONS
 .btn {
     border-radius: 1.5em;
-    padding-left : 30px;
+    padding-left: 30px;
     padding-right: 30px;
 }
 
 .btn-primary {
     font-weight: 600;
-    background : @black;
-    color      : @white;
-    border     : @black solid 2px;
+    background: @black;
+    color: @white;
+    border: @black solid 2px;
 
     &:hover,
     &:focus {
         -webkit-box-shadow: 0px 6px 21px -6px rgba(0, 0, 0, 0.75);
-        -moz-box-shadow   : 0px 6px 21px -6px rgba(0, 0, 0, 0.75);
-        box-shadow        : 0px 6px 21px -6px rgba(0, 0, 0, 0.75);
-        border            : @black solid 2px;
-        color             : @black;
-        background        : @white;
+        -moz-box-shadow: 0px 6px 21px -6px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 6px 21px -6px rgba(0, 0, 0, 0.75);
+        border: @black solid 2px;
+        color: @black;
+        background: @white;
     }
 
     &:active {
-        border    : @black solid 2px;
-        color     : @black;
+        border: @black solid 2px;
+        color: @black;
         background: @white;
 
     }
 }
 
 .btn-primary:not(:disabled):not(.disabled):active {
-    border    : @black solid 2px;
-    color     : @black;
+    border: @black solid 2px;
+    color: @black;
     background: @white;
 }
 
 .form-group {
 
     .form-control {
-        border       : none;
+        border: none;
         border-bottom: solid 2px @black;
         border-radius: .8em;
 
@@ -92,10 +93,120 @@ footer {
         }
 
         &:focus {
-            color           : #495057;
+            color: #495057;
             background-color: @white;
-            outline         : 0;
-            box-shadow      : 0 0 0 0.2rem rgba(3, 3, 3, 0.08);
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(3, 3, 3, 0.08);
         }
+    }
+}
+
+.modal-content {
+    border-radius: 1em;
+
+    .modal-body {
+        padding-bottom: 30px;
+    }
+
+    .modal-header {
+        border: none;
+
+        .close {
+            margin-top: -30px;
+            border-radius: 2em;
+            border: 2px solid @white;
+            background: @black;
+            color: @white;
+            opacity: 1;
+            width: auto;
+            padding: 5px 10px 10px 10px;
+            margin-right: 10px;
+        }
+    }
+}
+
+// Loading
+.loader {
+    color: @black;
+    font-size: 90px;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: 72px auto;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+    animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+}
+
+@-webkit-keyframes load6 {
+    0% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    5%,
+    95% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    10%,
+    59% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+    }
+    20% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+    }
+    38% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+    }
+    100% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+}
+
+@keyframes load6 {
+    0% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    5%,
+    95% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    10%,
+    59% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+    }
+    20% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+    }
+    38% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+    }
+    100% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+}
+
+@-webkit-keyframes round {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes round {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
