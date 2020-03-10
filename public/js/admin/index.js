@@ -1,5 +1,5 @@
+const modalId = 'modal-upsert';
 $(document).ready(function (e) {
-    const modalId = 'modal-upsert';
     var url;
     $(document).on('click', '.btn-upsert', function (e) {
         e.preventDefault();
@@ -13,5 +13,7 @@ $(document).ready(function (e) {
 function configurationForm() {
     var formId = 'form-upsert';
     submitFormConfiguration(formId, (response) => {
+        console.log("hola");
+        $('#' + modalId).modal('hide');
     });
 }

@@ -30,7 +30,8 @@
         <div class="col-md-8 mx-auto">
             @include('components.input',[
             'name' => 'password',
-            'label'=>'Contraseña'
+            'label'=>'Contraseña',
+            'type' => 'password'
             ])
         </div>
         <div class="col-md-8 mx-auto">
