@@ -22,17 +22,43 @@
                     Super usuarios
                 </div>
                 <div class="card-body p-4">
-                    @forelse($users as $user)
-                        {{$user->full_name}}
-                    @empty
-                        <h5 class="text-center  mt-3  ">
-                            <i>
-                                Sin usuarios
-                            </i>
-                        </h5>
-                    @endforelse
-                    {{ $users->links() }}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Nombre completo</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @forelse($users as $user)
+                            <tr>
+                                <td>
+                                    {{$user->full_name}}
+                                </td>
+                                <td>
+                                    <a href="{{route('admin_user_upsert',['userId'=>$user->id])}}"
+                                       class="btn-upsert">
+                                        <i class="fas fa-user-edit"></i>
+                                    </a>
+                                    <a href="{{route('admin_user_update_status',['userId'=>$user->id])}}"
+                                       class="btn-update-status">
+                                        <i class="fas {{$user->active?'fa-toggle-on':'fa-toggle-off'}}"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td class="text-center" colspan="2">
+                                    <i>
+                                        Sin usuarios
+                                    </i>
+                                </td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
                 </div>
+                {{ $users->links() }}
             </div>
         </div>
     </div>

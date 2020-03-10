@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('rol',function(Blueprint $table){
+        Schema::create('rol', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
         });
@@ -21,13 +21,13 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('last_name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('email');
+            $table->boolean('active')->default(true);
             $table->string('password');
             $table->unsignedBigInteger('fk_id_rol');
             $table->foreign('fk_id_rol')
-            ->references('id')
-            ->on('rol');
+                ->references('id')
+                ->on('rol');
             $table->rememberToken();
             $table->timestamps();
         });

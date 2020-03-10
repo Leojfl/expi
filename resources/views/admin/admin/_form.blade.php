@@ -12,26 +12,29 @@
         <div class="col-md-8 mx-auto">
             @include('components.input',[
             'name' => 'name',
-            'label'=>'Nombre'
+            'label'=>'Nombre',
+            'value' => isset($user)?$user->name:''
             ])
         </div>
         <div class="col-md-8 mx-auto">
             @include('components.input',[
             'name' => 'last_name',
-            'label'=>'Apellidos'
+            'label'=>'Apellidos',
+            'value' => isset($user)?$user->last_name:''
             ])
         </div>
         <div class="col-md-8 mx-auto">
             @include('components.input',[
             'name' => 'email',
-            'label'=>'Correo'
+            'label'=>'Correo',
+            'value' => isset($user)?$user->email:''
             ])
         </div>
         <div class="col-md-8 mx-auto">
             @include('components.input',[
             'name' => 'password',
             'label'=>'Contraseña',
-            'type' => 'password'
+            'type' => 'password',
             ])
         </div>
         <div class="col-md-8 mx-auto">

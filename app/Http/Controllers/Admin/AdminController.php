@@ -41,4 +41,12 @@ class AdminController extends Controller
         return response()
             ->json(['success' => $success]);
     }
+
+    public function updateStatus($userId)
+    {
+        $user = User::find($userId);
+        $user->active = !$user->active;
+        $success = $user->save;
+        return response()->json(['success' => $success]);
+    }
 }
