@@ -44,9 +44,12 @@ class AdminController extends Controller
 
     public function updateStatus($userId)
     {
+        if (!request()->ajax()) {
+            return redirect()->back();
+        }
         $user = User::find($userId);
-        $user->active = !$user->active;
-        $success = $user->save;
+        $user->active = !($user->active);
+        $success = $user->save();
         return response()->json(['success' => $success]);
     }
 }

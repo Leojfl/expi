@@ -13,7 +13,7 @@ Route::get('/{userId}/upsert/', 'AdminController@upsert')
 Route::post('/{userId}/upsert/', 'AdminController@upsertPost')
     ->name('admin_user_create_post');
 
-Route::post('/{userId}/update-status/', 'AdminController@updateStatus')
+Route::get('/{userId}/update-status/', 'AdminController@updateStatus')
     ->name('admin_user_update_status');
 
 /**=========================================

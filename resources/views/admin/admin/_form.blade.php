@@ -39,7 +39,7 @@
         </div>
         <div class="col-md-8 mx-auto">
             <button class="btn btn-primary btn-block">
-                Agregar
+                {{isset($user) ?'Guardar'  :'Agregar'}}
             </button>
         </div>
     </div>

@@ -1,5 +1,5 @@
-const modalId = 'modal-upsert';
-const swalWithBootstrapButtons = Swal.mixin({
+const MODAL_ID = 'modal-upsert';
+const SWAL_ALERT = Swal.mixin({
     customClass: {
         confirmButton: 'btn btn-primary ml-3',
         cancelButton: 'btn btn-info'
@@ -13,7 +13,7 @@ $(document).ready(function (e) {
     $(document).on('click', '.btn-upsert', function (e) {
         e.preventDefault();
         url = $(this).attr('href');
-        makeModalView(modalId, url, (response) => {
+        makeModalView(MODAL_ID, url, (response) => {
             configurationForm();
         });
     });
@@ -21,7 +21,7 @@ $(document).ready(function (e) {
         e.preventDefault();
         url = $(this).attr('href');
 
-        swalWithBootstrapButtons.fire({
+        SWAL_ALERT.fire({
             title: '¿Estas seguro?',
             text: "El usuario se desactivara",
             icon: 'warning',
@@ -31,12 +31,14 @@ $(document).ready(function (e) {
             reverseButtons: true
         }).then((result) => {
             if (result.value) {
-                swalWithBootstrapButtons.fire(
-                    'Desactivado!',
-                    'Desactivado correctamente',
-                    'success'
-                )
-                $.post();
+                $.get(url, (reponse) => {
+                    SWAL_ALERT.fire(
+                        'Desactivado!',
+                        'Desactivado correctamente',
+                        'success'
+                    );
+                    location.reload();
+                });
             }
         })
     });
@@ -45,7 +47,7 @@ $(document).ready(function (e) {
 function configurationForm() {
     var formId = 'form-upsert';
     submitFormConfiguration(formId, (response) => {
-        $('#' + modalId).modal('hide');
+        $('#' + MODAL_ID).modal('hide');
         location.reload();
     });
 }
