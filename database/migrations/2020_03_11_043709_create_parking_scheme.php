@@ -132,6 +132,14 @@ class CreateParkingScheme extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('address');
+        Schema::dropIfExists('pension_payment');
+        Schema::dropIfExists('pension');
+        Schema::dropIfExists('hours');
+        Schema::dropIfExists('day');
+        Schema::dropIfExists('special_hours');
+        Schema::dropIfExists('parking_payment');
         Schema::dropIfExists('parking');
+        Schema::dropIfExists('parking_type');
     }
 }
