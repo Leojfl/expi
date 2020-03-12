@@ -123,6 +123,12 @@ class CreateParkingScheme extends Migration
                 ->on("parking");
             $table->timestamps();
         });
+
+        Schema::create('terms', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->text('terms');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -141,5 +147,7 @@ class CreateParkingScheme extends Migration
         Schema::dropIfExists('parking_payment');
         Schema::dropIfExists('parking');
         Schema::dropIfExists('parking_type');
+        Schema::dropIfExists('terms');
+
     }
 }

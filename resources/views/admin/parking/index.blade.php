@@ -12,38 +12,33 @@
 @endpush
 @section('content')
     <div class="row">
-        <div class="col-md-12 text-right mt-5">
-            <a href="{{route('admin_user_upsert',['userId'=>0])}}"
-               class="btn btn-primary btn-upsert">Agregar</a>
-        </div>
-
         <div class="col-md-12 mt-5">
             <div class="card shadow">
                 <div class="card-header">
-                    Super usuarios
+                    Estacionamientos registrados
                 </div>
                 <div class="card-body p-4">
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Nombre completo</th>
+                            <th>Nombre del establecimiento</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                        @forelse($users as $user)
+                        @forelse($parkings as $parking)
                             <tr>
                                 <td>
-                                    {{$user->full_name}}
+                                    {{$parking->full_name}}
                                 </td>
                                 <td>
                                     <a href="{{route('admin_user_upsert',['userId'=>$user->id])}}"
                                        class="btn-upsert">
                                         <i class="fas fa-user-edit"></i>
                                     </a>
-                                    <a href="{{route('admin_user_update_status',['userId'=>$user->id])}}"
+                                    <a href="{{route('admin_user_update_status',['userId'=>$parking->id])}}"
                                        class="btn-update-status">
-                                        <i class="fas {{$user->active?'fa-toggle-on':'fa-toggle-off'}}"></i>
+                                        <i class="fas {{$parking->active?'fa-toggle-on':'fa-toggle-off'}}"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -51,7 +46,7 @@
                             <tr>
                                 <td class="text-center" colspan="2">
                                     <i>
-                                        Sin usuarios
+                                        Sin estacionamientos
                                     </i>
                                 </td>
                             </tr>
@@ -59,7 +54,7 @@
                         </tbody>
                     </table>
                 </div>
-                {{ $users->links() }}
+                {{ $parkings->links() }}
             </div>
         </div>
     </div>
