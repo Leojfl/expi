@@ -32,10 +32,15 @@ Route::get('/parkings', 'ParkingController@index')
 Route::get('/terms', 'TermsController@index')
     ->name('admin_terms_index');
 
-
+Route::post('/terms-upsert', 'TermsController@update')
+    ->name('terms_upsert');
 /**=========================================
  * Admins contact
  * =========================================*/
 
 Route::get('/contact', 'ContactController@index')
     ->name('admin_contacts_index');
+
+
+
+
