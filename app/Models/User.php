@@ -34,6 +34,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @mixin \Eloquent
  * @property int $active
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereActive($value)
+ * @property-read \App\Models\Parking $parking
+ * @property-read \App\Models\Special $special
  */
 class User extends Authenticatable
 {
@@ -42,19 +44,33 @@ class User extends Authenticatable
         'name',
         'last_name',
         'email'
-        ];
-    protected $appends=[
+    ];
+    protected $appends = [
         'full_name'
     ];
 
-    public function isAdmin(){
-        if( Rol::ADMIN == $this->fk_id_rol){
+    public function isAdmin()
+    {
+        if (Rol::ADMIN == $this->fk_id_rol) {
             return true;
         }
         return false;
     }
 
-    public function getFullNameAttribute(){
-        return $this->name.' '.$this->last_name;
+    public function getFullNameAttribute()
+    {
+        return $this->name . ' ' . $this->last_name;
+    }
+
+
+    public function special()
+    {
+        return $this->hasOne(Special::class,
+            'fk_id_user');
+    }
+    public function parking()
+    {
+        return $this->hasOne(Parking::class,
+            'fk_id_user');
     }
 }

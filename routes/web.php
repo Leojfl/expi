@@ -11,25 +11,29 @@
 |
 */
 
-Route::view('/', 'auth.login')
+Route::view('/',
+    'auth.login')
     ->name('login')
     ->middleware('guest');
 
-Route::get('/logout', 'Auth\LoginController@logout')
+Route::get('/logout',
+    'Auth\LoginController@logout')
     ->name('logout')
     ->middleware('auth');
 
-Route::post('/login-post', 'Auth\LoginController@autenticate')
+Route::post('/login-post',
+    'Auth\LoginController@autenticate')
     ->name('login_post')
     ->middleware('guest');
 
-Route::view('/register', 'auth.login')
+Route::view('/register',
+    'auth.register')
     ->name('register')
     ->middleware('guest');
 
-Route::post('/register', function () {
-    return view('auth.login');
-})->name('register_post')
+Route::post('/register-post/{userId}',
+    'Parking\RegisterController@upsert')
+    ->name('register_post')
     ->middleware('guest');
 
 Route::view('/home', 'welcome')

@@ -4,16 +4,20 @@
  * Admins actions
  * =========================================*/
 
-Route::get('/admins', 'AdminController@index')
+Route::get('/admins',
+    'AdminController@index')
     ->name('admin_users_index');
 
-Route::get('/{userId}/upsert/', 'AdminController@upsert')
+Route::get('/{userId}/upsert/',
+    'AdminController@upsert')
     ->name('admin_user_upsert');
 
-Route::post('/{userId}/upsert/', 'AdminController@upsertPost')
+Route::post('/{userId}/upsert/',
+    'AdminController@upsertPost')
     ->name('admin_user_create_post');
 
-Route::get('/{userId}/update-status/', 'AdminController@updateStatus')
+Route::get('/{userId}/update-status/',
+    'AdminController@updateStatus')
     ->name('admin_user_update_status');
 
 /**=========================================
@@ -21,24 +25,41 @@ Route::get('/{userId}/update-status/', 'AdminController@updateStatus')
  * =========================================*/
 
 
-Route::get('/parkings', 'ParkingController@index')
+Route::get('/parkings',
+    'ParkingController@index')
     ->name('admin_parking_index');
+
+
+
+Route::get('/parkings/{parkingId}/update-status',
+    'ParkingController@updateStatus')
+    ->name('admin_parking_update_status');
+
+
+Route::get('/parkings/{parkingId}/show',
+    'ParkingController@show')
+    ->name('admin_parking_show');
+
+
 
 
 /**=========================================
  * Admins terms
  * =========================================*/
 
-Route::get('/terms', 'TermsController@index')
+Route::get('/terms',
+    'TermsController@index')
     ->name('admin_terms_index');
 
-Route::post('/terms-upsert', 'TermsController@update')
+Route::post('/terms-upsert',
+    'TermsController@update')
     ->name('terms_upsert');
 /**=========================================
  * Admins contact
  * =========================================*/
 
-Route::get('/contact', 'ContactController@index')
+Route::get('/contact',
+    'ContactController@index')
     ->name('admin_contacts_index');
 
 

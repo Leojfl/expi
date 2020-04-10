@@ -10,7 +10,7 @@
 @push('scripts')
     <!-- Include the Quill library -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script src="{{asset('js/terms/index.js')}}"
+    <script src="{{asset('js/admin/terms/index.js')}}"
             type="text/javascript"></script>
 @endpush
 @section('content')

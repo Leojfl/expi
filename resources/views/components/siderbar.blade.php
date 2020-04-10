@@ -3,6 +3,7 @@
     @include('admin.components.sidebar')
     @break
     @case(\App\Models\Rol::PARKING)
+    @include('parking.components.sidebar')
     @break
     @case(\App\Models\Rol::CLIENT)
     @break

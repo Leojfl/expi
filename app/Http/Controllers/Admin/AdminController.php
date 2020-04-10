@@ -28,6 +28,7 @@ class AdminController extends Controller
 
     public function upsertPost(UpsertAdminRequests $requests, $userId = 0)
     {
+
         if ($userId == 0) {
             $user = new User();
         } else {

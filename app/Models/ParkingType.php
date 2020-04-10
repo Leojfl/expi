@@ -20,6 +20,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ParkingType extends Model
 {
+    const PARKING =1;
+    const PENSION = 2;
+    const PARKING_AND_PENSION = 3;
+
     protected $table = 'parking_type';
+
+
 
 }

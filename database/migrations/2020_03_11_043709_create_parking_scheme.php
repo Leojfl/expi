@@ -85,8 +85,10 @@ class CreateParkingScheme extends Migration
                 ->references('id')
                 ->on("day");
         });
-        Schema::create('pension', function (Blueprint $table) {
+        Schema::create('special', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->boolean('pension')->default(false);
+            $table->boolean('active')->default(true);
             $table->unsignedBigInteger("fk_id_user");
             $table->foreign("fk_id_user")
                 ->references('id')
@@ -96,24 +98,25 @@ class CreateParkingScheme extends Migration
             $table->foreign("fk_id_parking")
                 ->references('id')
                 ->on("parking");
+            $table->timestamps();
         });
 
         Schema::create('pension_payment', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->double("amount", 13, 2);
             $table->date("date");
-            $table->unsignedBigInteger("fk_id_pension");
+            $table->unsignedBigInteger("fk_id_special");
 
-            $table->foreign("fk_id_pension")
+            $table->foreign("fk_id_special")
                 ->references('id')
-                ->on("pension");
+                ->on("special");
             $table->timestamps();
         });
 
         Schema::create('address', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->double("latitude", 13, 13);
-            $table->double("longitude", 13, 13);
+            $table->double("latitude");
+            $table->double("longitude");
             $table->boolean('active')->default(true);
 
             $table->unsignedBigInteger("fk_id_parking");
@@ -129,6 +132,41 @@ class CreateParkingScheme extends Migration
             $table->text('terms');
             $table->timestamps();
         });
+
+        Schema::create('ticket', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->double('total');
+            $table->double('discount');
+            $table->dateTime('start');
+            $table->dateTime('end');
+            $table->timestamps();
+
+            $table->unsignedBigInteger("fk_id_parking");
+
+            $table->unsignedBigInteger("fk_id_user");
+
+            $table->foreign("fk_id_parking")
+                ->references('id')
+                ->on("parking");
+
+            $table->foreign("fk_id_user")
+                ->references('id')
+                ->on("user");
+        });
+
+
+        Schema::create('tariff', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('title');
+            $table->double('price');
+            $table->dateTime('time');
+            $table->timestamps();
+            $table->unsignedBigInteger("fk_id_parking");
+            $table->foreign("fk_id_parking")
+                ->references('id')
+                ->on("parking");
+        });
+
     }
 
     /**
@@ -138,16 +176,18 @@ class CreateParkingScheme extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('tariff');
+        Schema::dropIfExists('ticket');
+        Schema::dropIfExists('terms');
         Schema::dropIfExists('address');
         Schema::dropIfExists('pension_payment');
-        Schema::dropIfExists('pension');
+        Schema::dropIfExists('special');
         Schema::dropIfExists('hours');
         Schema::dropIfExists('day');
         Schema::dropIfExists('special_hours');
         Schema::dropIfExists('parking_payment');
         Schema::dropIfExists('parking');
         Schema::dropIfExists('parking_type');
-        Schema::dropIfExists('terms');
 
     }
 }

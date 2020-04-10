@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PensionPayment whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PensionPayment whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $fk_id_special
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PensionPayment whereFkIdSpecial($value)
  */
 class PensionPayment extends Model
 {

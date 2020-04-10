@@ -29,9 +29,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Parking whereRanking($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Parking whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Models\User $user
  */
 class Parking extends Model
 {
     protected $table='parking';
+
+
+    public function user(){
+            return $this->belongsTo(User::class,
+                'fk_id_user');
+    }
 
 }
