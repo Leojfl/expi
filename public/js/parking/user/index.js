@@ -12,18 +12,18 @@ $(document).ready(function (e) {
     var url;
     $(document).on('click', '.btn-upsert', function (e) {
         e.preventDefault();
-        url = $(this).attr('href');
+        url = $(this).data('url');
         makeModalView(MODAL_ID, url, (response) => {
             configurationForm();
         });
     });
     $(document).on('click', '.btn-update-status', function (e) {
         e.preventDefault();
-        url = $(this).attr('href');
-
+        url = $(this).data('url');
+        console.log(url)
         SWAL_ALERT.fire({
             title: '¿Estas seguro?',
-            text: "El estacionamiento se desactivara",
+            text: "El usuario se desactivara",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Sí',

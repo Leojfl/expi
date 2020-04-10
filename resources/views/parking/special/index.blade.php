@@ -13,14 +13,15 @@
 @section('content')
     <div class="row">
         <div class="col-md-12 text-right mt-5">
-            <a href="{{route('admin_user_upsert',['userId'=>0])}}"
+            <a href="#"
+               data-url="{{route('admin_user_upsert',['userId'=>0])}}"
                class="btn btn-primary btn-upsert">Agregar</a>
         </div>
 
         <div class="col-md-12 mt-5">
             <div class="card shadow">
                 <div class="card-header">
-                    Usuarios  {{($pension)?' de pensión':'especiales'}}
+                    Usuarios {{($pension)?' de pensión':'especiales'}}
                 </div>
                 <div class="card-body p-4">
                     <table class="table">
@@ -38,12 +39,12 @@
                                 </td>
                                 <td>
                                     <a href="#"
-                                    data-url="{{route('admin_user_upsert',['userId'=>$user->id])}}"
-                                    class="btn-upsert">
+                                       data-url="{{route('parking_user_special_upsert',['userId'=>$user->id])}}"
+                                       class="btn-upsert">
                                         <i class="fas fa-user-edit"></i>
                                     </a>
                                     <a href="#"
-                                    data-url="{{route('admin_user_update_status',['userId'=>$user->id])}}"
+                                       data-url="{{route('parking_user_update_status',['userId'=>$user->id])}}"
                                        class="btn-update-status">
                                         <i class="fas {{$user->active?'fa-toggle-on':'fa-toggle-off'}}"></i>
                                     </a>
