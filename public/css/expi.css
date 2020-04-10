@@ -42,7 +42,7 @@ footer {
 }
 .btn-primary:hover,
 .btn-primary:focus {
-  box-shadow: 0px 6px 21px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 6px 21px -6px rgba(0, 0, 0, 0.75);
   border: #000000 solid 2px;
   color: #000000;
   background: #ffff;
@@ -88,8 +88,26 @@ footer {
   color: #ffff;
   opacity: 1;
   width: auto;
-  padding: 5px 10px 10px 10px;
+  padding: 0 10px 10px 10px;
   margin-right: 10px;
+}
+.pagination {
+  justify-content: center;
+}
+.pagination .active .page-link {
+  background: #000000 !important;
+  color: #ffff !important;
+  border-color: transparent;
+}
+.pagination .page-item .page-link {
+  margin-left: 5px;
+  color: black;
+  padding: 0.38rem 0.75rem;
+  border-radius: 2em !important;
+}
+.pagination .page-item .page-link.pagination .page-item .page-link:hover {
+  background: #000000 !important;
+  color: #ffff !important;
 }
 .loader {
   color: #000000;

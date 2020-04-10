@@ -7,8 +7,12 @@
     <div class="row">
         @csrf
         <div class="col-md-12 text-center">
-            <h4>Agregar usuario</h4>
+            <h4>Agregar usuario  {{($pension)?'de la pensión':''}}</h4>
         </div>
+        @if($pension)
+            <input type="hidden" name="pension" value="1">
+            @endif
+
         <div class="col-md-8 mx-auto">
             @include('components.input',[
             'name' => 'name',

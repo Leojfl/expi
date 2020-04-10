@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-12 text-right mt-5">
             <a href="#"
-               data-url="{{route('admin_user_upsert',['userId'=>0])}}"
+               data-url="{{route('parking_user_special_upsert',['userId'=>0, 'pension'=> $pension])}}"
                class="btn btn-primary btn-upsert">Agregar</a>
         </div>
 
