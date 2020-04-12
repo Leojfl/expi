@@ -40,5 +40,4 @@ class UpsertAdminRequests extends FormRequest
             'password.required' => 'Contraseña requerida',
         ];
     }
-
 }

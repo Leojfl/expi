@@ -17,22 +17,37 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
-    public  $faker;
+    public $faker;
+
     public function run()
     {
         $this->faker = Faker\Factory::create('es_MX');
         $this->roles();
         $this->admin();
-
+        $this->day();
 
         $this->typeParking();
         $this->parking();
+
 
         $this->userSpecial();
         $this->userPention();
         $this->userServices();
 
 
+    }
+
+    public function day()
+    {
+        \DB::table('day')->insert([
+            ['name' => 'Lunes', 'id' => 1],
+            ['name' => 'Martes', 'id' => 2],
+            ['name' => 'Miercoles', 'id' => 3],
+            ['name' => 'Jueves', 'id' => 4],
+            ['name' => 'Viernes', 'id' => 5],
+            ['name' => 'Sabado', 'id' => 6],
+            ['name' => 'Domingo', 'id' => 7],
+        ]);
     }
 
     public function roles()
@@ -93,6 +108,14 @@ class UserSeeder extends Seeder
         $parking->save();
 
 
+        $tariff = new \App\Models\Tariff();
+        $tariff->title = "Menos de 15 minutos";
+        $tariff->price = rand(20, 30);
+        $tariff->time = 15;
+        $tariff->fk_id_parking = $parking->id;
+        $tariff->save();
+
+
         for ($x = 1; $x < 10; $x++) {
             $user = new User();
             $user->name = $this->faker->name;
@@ -115,8 +138,25 @@ class UserSeeder extends Seeder
             $address->longitude = $this->faker->longitude;
             $address->fk_id_parking = $parking->id;
             $address->save();
-        }
+            for ($i = 1; $i <= 7; $i++) {
 
+                $schedule = new \App\Models\Hours();
+                $schedule->name = '';
+                $schedule->start = \Carbon\Carbon::now()->addHours(-5)->toTimeString();
+                $schedule->end = \Carbon\Carbon::now()->addHours(5)->toTimeString();
+                $schedule->fk_id_parking = $parking->id;
+                $schedule->fk_id_day = $i;
+                $schedule->save();
+            }
+
+            $tariff = new \App\Models\Tariff();
+            $tariff->title = "Menos o 15 minutos";
+            $tariff->price = rand(20, 30);
+            $tariff->time = 15.0;
+            $tariff->fk_id_parking = $parking->id;
+            $tariff->save();
+
+        }
     }
 
     public function userSpecial()
@@ -129,9 +169,9 @@ class UserSeeder extends Seeder
             $user->password = Hash::make('prueba');
             $user->fk_id_rol = Rol::CLIENT;
             $user->save();
-            if ($x < 15){
+            if ($x < 15) {
                 $special = new Special();
-                $special->fk_id_user=$user->id;
+                $special->fk_id_user = $user->id;
                 $special->fk_id_parking = 1;
                 $special->save();
             }

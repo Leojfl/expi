@@ -84,6 +84,7 @@ class CreateParkingScheme extends Migration
             $table->foreign("fk_id_day")
                 ->references('id')
                 ->on("day");
+            $table->timestamps();
         });
         Schema::create('special', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -159,7 +160,8 @@ class CreateParkingScheme extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->double('price');
-            $table->dateTime('time');
+            $table->double('time');
+            $table->boolean('active')->default(true);
             $table->timestamps();
             $table->unsignedBigInteger("fk_id_parking");
             $table->foreign("fk_id_parking")

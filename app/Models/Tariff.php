@@ -4,6 +4,7 @@
 namespace App\Models;
 
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $title
  * @property float $price
- * @property string $time
+ * @property float $time
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int $fk_id_parking
@@ -31,4 +32,29 @@ use Illuminate\Database\Eloquent\Model;
 class Tariff extends Model
 {
     protected $table = 'tariff';
+    protected $fillable = ['title', 'price', 'time'];
+    protected $appends = ['full_time'];
+
+    public function getFullTimeAttribute($key)
+    {
+        $fullTime = "";
+        $minutes = $this->time;
+        if ($minutes > 60) {
+            $hours=((int)($minutes / 60));
+            if($hours==1){
+                $fullTime = $hours . ' hora';
+            }else{
+                $fullTime = $hours . ' horas';
+            }
+            if( ($minutes % 60)>0){
+                $fullTime= $fullTime.' '.($minutes % 60). ' minutos ';
+            }
+
+        } else {
+            $fullTime = $minutes . " minutos";
+        }
+        return $fullTime;
+    }
+
+
 }

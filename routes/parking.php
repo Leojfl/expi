@@ -37,6 +37,20 @@ Route::get('/tariffs',
     'TariffController@index')
     ->name('parking_tariffs_index');
 
+Route::get('/tariffs/{tariffId}/upsert',
+    'TariffController@upsert')
+    ->name('parking_tariffs_upsert');
+
+Route::post('/tariffs/{tariffId}/upsert',
+    'TariffController@upsertPost')
+    ->name('parking_tariffs_upsert_post');
+
+
+Route::get('/tariffs/{tariffId}/upsert-status',
+    'TariffController@updateStatus')
+    ->name('parking_tariffs_update_status');
+
+
 /**=========================================
  * CONSULTS
  * =========================================*/
