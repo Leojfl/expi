@@ -22,7 +22,7 @@
                     Usuarios de la pension
                 </a>
             @endif
-            <a class="nav-link {{$routeName=='parking_tariffs_index'?'active':''}}"
+            <a class="nav-link {{($routeName=='parking_tariffs_index')?'active':''}}"
                href="{{route('parking_tariffs_index')}}">
                 Tarifas
             </a>

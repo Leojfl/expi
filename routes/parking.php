@@ -13,7 +13,6 @@ Route::get('/pension-user',
     ->name('parking_pension_users_index');
 
 
-
 Route::get('/user/update/{userId?}',
     'UserController@upsert')
     ->name('parking_user_special_upsert');
@@ -55,6 +54,11 @@ Route::get('/tariffs/{tariffId}/upsert-status',
  * CONSULTS
  * =========================================*/
 
-Route::get('/queries',
+Route::get('/graphic',
     'QueryController@index')
     ->name('parking_graphics_index');
+
+
+Route::post('/graphic-content',
+    'QueryController@indexContent')
+    ->name('parking_graphics_content');

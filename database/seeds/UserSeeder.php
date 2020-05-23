@@ -181,11 +181,35 @@ class UserSeeder extends Seeder
 
     public function userPention()
     {
-
+        for ($x = 1; $x < 30; $x++) {
+            $user = new User();
+            $user->name = $this->faker->name;
+            $user->last_name = $this->faker->lastName;
+            $user->email = $this->faker->email;
+            $user->password = Hash::make('prueba');
+            $user->fk_id_rol = Rol::CLIENT;
+            $user->save();
+            if ($x < 15) {
+                $special = new Special();
+                $special->fk_id_user = $user->id;
+                $special->fk_id_parking = 1;
+                $special->pension = true;
+                $special->save();
+            }
+        }
     }
 
     public function userServices()
     {
 
+        for ($x = 1; $x < 30; $x++) {
+            $user = new User();
+            $user->name = $this->faker->name;
+            $user->last_name = $this->faker->lastName;
+            $user->email = $this->faker->email;
+            $user->password = Hash::make('prueba');
+            $user->fk_id_rol = Rol::CLIENT;
+            $user->save();
+        }
     }
 }

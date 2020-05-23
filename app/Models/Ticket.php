@@ -34,6 +34,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Ticket extends Model
 {
-protected $table='ticket';
+    protected $table = 'ticket';
 
+    public function parking()
+    {
+        return $this->belongsTo(Parking::class,
+            'fk_id_parking');
+    }
 }
